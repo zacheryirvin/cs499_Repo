@@ -1,0 +1,493 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Zachery Irvin | CS-499 ePortfolio</title>
+  <meta name="description" content="CS-499 ePortfolio: Code review video, original & enhanced artifacts, narratives, and professional self-assessment." />
+  <style>
+    :root{
+      --bg:#0b0f16;
+      --panel:#101827;
+      --card:#0f172a;
+      --text:#e5e7eb;
+      --muted:#9ca3af;
+      --accent:#60a5fa;
+      --accent2:#fbbf24;
+      --border:rgba(255,255,255,.10);
+      --shadow: 0 10px 30px rgba(0,0,0,.35);
+      --radius:16px;
+      --max: 1100px;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      background: radial-gradient(1200px 600px at 20% 0%, rgba(96,165,250,.20), transparent 60%),
+                  radial-gradient(1000px 500px at 80% 20%, rgba(251,191,36,.18), transparent 60%),
+                  var(--bg);
+      color: var(--text);
+      line-height: 1.5;
+    }
+    a{color:var(--accent); text-decoration:none}
+    a:hover{text-decoration:underline}
+    header{
+      position: sticky;
+      top: 0;
+      backdrop-filter: blur(10px);
+      background: rgba(11,15,22,.75);
+      border-bottom: 1px solid var(--border);
+      z-index: 10;
+    }
+    .wrap{max-width: var(--max); margin: 0 auto; padding: 18px 18px;}
+    .top{
+      display:flex; gap:16px; align-items:center; justify-content:space-between; flex-wrap:wrap;
+    }
+    .brand{
+      display:flex; flex-direction:column; gap:4px;
+    }
+    .brand h1{font-size: 18px; margin:0; letter-spacing:.2px}
+    .brand p{margin:0; color: var(--muted); font-size: 13px}
+    nav{
+      display:flex; gap:10px; flex-wrap:wrap;
+    }
+    nav a{
+      padding:8px 10px;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      color: var(--text);
+      font-size: 13px;
+      background: rgba(255,255,255,.03);
+    }
+    nav a:hover{border-color: rgba(96,165,250,.5)}
+    .hero{
+      padding: 28px 0 6px;
+    }
+    .grid{
+      display:grid;
+      grid-template-columns: 1fr;
+      gap:16px;
+    }
+    @media(min-width: 900px){
+      .grid{grid-template-columns: 1.25fr .75fr;}
+    }
+    .panel{
+      background: rgba(16,24,39,.75);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 18px;
+    }
+    .panel h2{margin:0 0 10px; font-size: 18px}
+    .panel p{margin: 0 0 10px; color: var(--text)}
+    .muted{color: var(--muted)}
+    .chips{display:flex; flex-wrap:wrap; gap:8px; margin-top: 10px;}
+    .chip{
+      font-size:12px;
+      padding:6px 10px;
+      border-radius: 999px;
+      border:1px solid var(--border);
+      color: var(--muted);
+      background: rgba(255,255,255,.03);
+    }
+    .cards{
+      display:grid;
+      grid-template-columns: 1fr;
+      gap: 12px;
+    }
+    @media(min-width: 700px){
+      .cards{grid-template-columns: 1fr 1fr;}
+    }
+    .card{
+      background: rgba(15,23,42,.85);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 16px;
+    }
+    .card h3{margin:0 0 6px; font-size: 16px}
+    .card p{margin:0 0 10px; color: var(--muted); font-size: 13px}
+    .actions{display:flex; gap:10px; flex-wrap:wrap; margin-top: 8px;}
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center;
+      padding: 9px 12px;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,.04);
+      color: var(--text);
+      font-size: 13px;
+      text-decoration:none;
+    }
+    .btn:hover{border-color: rgba(96,165,250,.6)}
+    .btn.primary{
+      border-color: rgba(96,165,250,.6);
+      background: rgba(96,165,250,.12);
+    }
+    .btn.gold{
+      border-color: rgba(251,191,36,.65);
+      background: rgba(251,191,36,.12);
+    }
+    section{scroll-margin-top: 90px; padding: 18px 0;}
+    footer{
+      margin-top: 20px;
+      padding: 24px 0 40px;
+      border-top: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 13px;
+    }
+    .list{
+      display:grid; gap:10px;
+    }
+    .row{
+      display:flex; gap:10px; flex-wrap:wrap; align-items:center; justify-content:space-between;
+      padding: 12px;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      background: rgba(255,255,255,.02);
+    }
+    .row strong{font-size: 14px}
+    .row span{color: var(--muted); font-size: 13px}
+    .hint{
+      font-size: 12px;
+      color: var(--muted);
+      border-left: 3px solid rgba(96,165,250,.6);
+      padding-left: 10px;
+      margin-top: 10px;
+    }
+    code{
+      background: rgba(0,0,0,.25);
+      padding: 2px 6px;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      font-size: 12px;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="wrap top">
+      <div class="brand">
+        <h1>Zachery Irvin — CS-499 ePortfolio</h1>
+        <p class="muted">Real-Time Messaging App • Algorithms • Databases • Security • Communication</p>
+      </div>
+      <nav aria-label="Primary navigation">
+        <a href="#self-assessment">Self-Assessment</a>
+        <a href="#code-review">Code Review</a>
+        <a href="#artifacts">Artifacts</a>
+        <a href="#documents">Word Docs</a>
+        <a href="#links">Live App Links</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <div class="hero grid">
+      <div class="panel">
+        <h2>Overview</h2>
+        <p>
+          This portfolio presents my CS-499 capstone enhancements across three categories:
+          <strong>Software Design & Engineering</strong>, <strong>Algorithms & Data Structures</strong>, and <strong>Databases</strong>.
+          It includes my informal code review video, original and enhanced artifacts, written narratives, and my professional self-assessment.
+        </p>
+        <div class="chips">
+          <div class="chip">Full-Stack Development</div>
+          <div class="chip">PostgreSQL + MongoDB</div>
+          <div class="chip">Friend Suggestion Algorithm</div>
+          <div class="chip">AI Chatbot Route + UI</div>
+          <div class="chip">Secure Coding Practices</div>
+        </div>
+
+      </div>
+
+      <div class="panel">
+        <h2>Quick Links</h2>
+        <div class="actions">
+          <a class="btn primary" href="#code-review">Watch Code Review</a>
+          <a class="btn gold" href="#documents">Download Word Docs</a>
+          <a class="btn" href="#links">Open Live App</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- SELF-ASSESSMENT -->
+    <section id="self-assessment">
+      <div class="panel">
+        <h2>Professional Self-Assessment</h2>
+
+		<p>
+			The completion of my Computer Science program, culminating in the development
+			of this professional ePortfolio, marks a significant progression in my
+			technical and professional capabilities. I have advanced from simple
+			programming tasks to designing, enhancing, and maintaining robust full-stack
+			systems. My work emphasizes scalability, maintainability, and a
+			user-centered approach, with this ePortfolio serving as a collection of
+			real-world artifacts that quantitatively demonstrate my skills and readiness
+			for the computer science field.
+		  </p>
+
+		  <h3>Key Technical Strengths</h3>
+
+		  <h4>Software Engineering and System Design</h4>
+		  <p>
+			My coursework, including the Software Development Lifecycle, Advanced
+			Programming Concepts, and Secure Coding, provided a strong foundation in
+			modular design, separation of concerns, and maintainable architecture. This
+			expertise is reflected in my enhanced real-time messaging application, where
+			I successfully refactored routes, introduced service layers, and integrated
+			new features without compromising existing functionality—closely mirroring
+			professional industry practices.
+		  </p>
+
+		  <h4>Data Structures and Algorithms</h4>
+		  <p>
+			I possess strong competency in applying fundamental data structures such as
+			vectors, hash tables, and trees, as well as graph-based reasoning, to solve
+			complex problems. A key artifact in this ePortfolio is the implementation of a
+			friend suggestion algorithm that efficiently balances correctness,
+			relational data, and weighted scoring to recommend meaningful connections—a
+			skill directly applicable to modern backend development.
+		  </p>
+
+		  <h4>Database Architecture</h4>
+		  <p>
+			I am proficient in integrating and utilizing both relational (PostgreSQL)
+			and non-relational (MongoDB) database systems. By employing a hybrid approach—
+			using PostgreSQL for transactional integrity and MongoDB for long-term
+			storage and analytics—I demonstrate the ability to make industry-standard
+			architectural decisions by selecting the optimal tool for specific
+			data-driven requirements.
+		  </p>
+
+		  <h4>Security Awareness</h4>
+		  <p>
+			Security is an integral part of my development process. I have learned to
+			proactively anticipate and mitigate vulnerabilities related to
+			authentication, data integrity, and API design. My enhanced artifacts
+			incorporate secure coding practices such as parameterized queries,
+			controlled access routes, and defensive error handling to guard against
+			common attack vectors.
+		  </p>
+
+		  <h3>Professional Skills</h3>
+
+		  <h4>Collaboration and Communication</h4>
+		  <p>
+			A critical element of my growth has been the ability to clearly communicate
+			technical decisions to diverse stakeholders. This skill is demonstrated
+			through documentation, design diagrams, presentations, and the informal code
+			review video included in my ePortfolio, which explains system behavior,
+			identifies improvements, and justifies enhancement decisions for both peers
+			and managers.
+		  </p>
+
+		  <p>
+			Collectively, the artifacts within this ePortfolio form a cohesive body of
+			work that showcases my strengths across full-stack development, algorithmic
+			thinking, robust database design, and effective professional communication.
+			Together, they provide a strong foundation for continued success as a
+			software engineer.
+		  </p>
+
+        <div class="actions">
+          <a class="btn primary" href="./Professional_Self_Assessment.docx" target="_blank" rel="noopener">
+            Download Self-Assessment (DOCX)
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- CODE REVIEW -->
+    <section id="code-review">
+      <div class="panel">
+        <h2>Informal Code Review Video</h2>
+        <p class="muted">
+          Covers existing functionality, code analysis, and planned enhancements aligned to course outcomes.
+        </p>
+
+        <div class="cards">
+          <div class="card">
+            <h3>Watch the video</h3>
+            <p>Hosted externally for file size/performance.</p>
+            <div class="actions">
+              <a class="btn primary" href="https://www.youtube.com/watch?v=cjSdLcTz7gM" target="_blank" rel="noopener">
+                Open Code Review Video
+              </a>
+            </div>
+          </div>
+
+          <div class="card">
+            <h3>Video summary</h3>
+            <p>
+              A comprehensive code review of a real-time chat application, detailing its architecture and planned enhancements. The back-end is built with Node.js and Express.js, using PostgreSQL for relational data, while the front-end is developed with React and Gatsby. Key improvements include implementing schema validation, uniform error handling, and better code documentation. Future functionalities will add a chatbot, a friend suggestion algorithm based on a weighted graph system, and an admin-accessible data visualization page leveraging MongoDB. These planned changes aim to improve code quality, enhance user experience, and demonstrate strong software design, algorithmic reasoning, and database architecture.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ARTIFACTS -->
+    <section id="artifacts">
+      <div class="panel">
+        <h2>Artifacts & Enhancements</h2>
+        <p class="muted">
+          Each artifact includes original + enhanced code, plus a narrative that explains learning outcomes, skills demonstrated, and course alignment.
+        </p>
+
+        <div class="cards">
+          <div class="card">
+            <h3>1) Software Design & Engineering</h3>
+            <p><strong>Artifact:</strong> Real-Time Messaging Application + AI Chatbot Integration</p>
+            <div class="actions">
+              <a class="btn primary" href="https://github.com/zacheryirvin/messageAppFront" target="_blank" rel="noopener">
+                View Frontend Code (Repo)
+              </a>
+			  <a class="btn primary" href="https://github.com/zacheryirvin/messageAppBack" target="_blank" rel="noopener">
+                View Backend Code (Repo)
+              </a>
+              <a class="btn" href="./Software_Design_Engineering.docx" target="_blank" rel="noopener">
+                Narrative (DOCX)
+              </a>
+            </div>
+          </div>
+
+          <div class="card">
+            <h3>2) Algorithms & Data Structures</h3>
+            <p><strong>Artifact:</strong> Friend Suggestion Algorithm (graph/weighted scoring)</p>
+            <div class="actions">
+              <a class="btn primary" href="https://github.com/zacheryirvin/messageAppBack/blob/master/database/actions/friendsActions.js" target="_blank" rel="noopener">
+                View Code (Repo)
+              </a>
+              <a class="btn" href="./Algorithms_Data_Structures.docx" target="_blank" rel="noopener">
+                Narrative (DOCX)
+              </a>
+            </div>
+          </div>
+
+          <div class="card">
+            <h3>3) Databases</h3>
+            <p><strong>Artifact:</strong> PostgreSQL + MongoDB Hybrid Architecture + Analytics</p>
+            <div class="actions">
+              <a class="btn primary" href="https://github.com/zacheryirvin/messageAppBack/tree/master/database" target="_blank" rel="noopener">
+                View Code (Repo)
+              </a>
+              <a class="btn" href="./Databases.docx" target="_blank" rel="noopener">
+                Narrative (DOCX)
+              </a>
+            </div>
+          </div>
+
+          <div class="card">
+            <h3>Original vs Enhanced (required)</h3>
+            <p>
+              Provide both versions in your repo. A simple approach is a folder split:
+              <code>/original</code> and <code>/enhanced</code>.
+            </p>
+            <div class="actions">
+              <a class="btn" href="./Original.zip" target="_blank" rel="noopener">Original Code Folder</a>
+              <a class="btn" href="./Enhanced.zip" target="_blank" rel="noopener">Enhanced Code Folder</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- WORD DOCS -->
+    <section id="documents">
+      <div class="panel">
+        <h2>Word Documents</h2>
+
+        <div class="list">
+          <div class="row">
+            <div>
+              <strong>Professional Self-Assessment</strong><br />
+              <span>Holistic introduction to skills, goals, and readiness</span>
+            </div>
+            <div class="actions">
+              <a class="btn primary" href="./Professional_Self_Assessment.docx" target="_blank" rel="noopener">Download</a>
+            </div>
+          </div>
+
+          <div class="row">
+            <div>
+              <strong>Narrative — Software Design & Engineering</strong><br />
+              <span>AI chatbot integration, architecture, UI/UX improvements</span>
+            </div>
+            <div class="actions">
+              <a class="btn" href="./Software_Design_Engineering.docx" target="_blank" rel="noopener">Download</a>
+            </div>
+          </div>
+
+          <div class="row">
+            <div>
+              <strong>Narrative — Algorithms & Data Structures</strong><br />
+              <span>Friend suggestion algorithm, efficiency and trade-offs</span>
+            </div>
+            <div class="actions">
+              <a class="btn" href="./Algorithms_Data_Structures.docx" target="_blank" rel="noopener">Download</a>
+            </div>
+          </div>
+
+          <div class="row">
+            <div>
+              <strong>Narrative — Databases</strong><br />
+              <span>PostgreSQL + MongoDB design, analytics and visualization</span>
+            </div>
+            <div class="actions">
+              <a class="btn" href="./Databases.docx" target="_blank" rel="noopener">Download</a>
+            </div>
+          </div>
+
+          <div class="row">
+            <div>
+              <strong>Milestone / Planning Docs</strong><br />
+              <span>Module templates, initial enhancement plan, etc.</span>
+            </div>
+            <div class="actions">
+              <a class="btn" href="./CS_499_Module_One.docx" target="_blank" rel="noopener">Download</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- LIVE LINKS -->
+    <section id="links">
+      <div class="panel">
+        <h2>Live Messaging Application</h2>
+      
+        <div class="cards">
+          <div class="card">
+            <h3>Live App</h3>
+            <p>Open portfolio site with projects including the live messaging application.</p>
+			<p>For full access to features of the messaging application, login with</p>
+			<p><strong>username:</strong> admin, <strong>password:</strong> test</p>
+            <div class="actions">
+              <!-- live URL -->
+              <a class="btn primary" href="https://www.zacheryirvin.com" target="_blank" rel="noopener">Open Live App</a>
+            </div>
+          </div>
+
+          <div class="card">
+            <h3>Source Code</h3>
+            <p>Frontend + backend repositories - Messaging Application.</p>
+            <div class="actions">
+              <a class="btn" href="https://github.com/zacheryirvin/messageAppFront" target="_blank" rel="noopener">Frontend Repo</a>
+              <a class="btn" href="https://github.com/zacheryirvin/messageAppBack" target="_blank" rel="noopener">Backend Repo</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="wrap">
+      <div class="muted">
+        © <span id="year"></span> Zachery Irvin • CS-499 ePortfolio • Hosted on GitHub Pages
+      </div>
+    </footer>
+  </main>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
